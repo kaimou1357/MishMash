@@ -12,11 +12,18 @@ default: &default
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  host: localhost
+  username: kaimou1357
+  password: adventure
+  database: mishmash_development
+
 
 test:
-  <<: *default
-  database: db/test.sqlite3
+  host: localhost
+  username: kaimou1357
+  password: adventure
+  database: mishmash_test
+
 
 production:
   <<: *default

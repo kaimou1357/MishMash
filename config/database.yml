@@ -2,24 +2,15 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   encoding: unicode
+  host: localhost
+  username: <%= ENV.fetch("DB_USERNAME") { 5 } %>
+  password: <%= ENV.fetch("DB_PASSWORD") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
-  host: localhost
-  username: kaimou1357
-  password: adventure
   database: mishmash_development
 
-test:
+development:
   <<: *default
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  database: <%= ENV['DATABASE_NAME_TEST'] %>
-
-production:
-  <<: *default
-  username: mishmash
-  password: adventure
-  database: mishmash_production
-  host: /cloudsql/mishmash-staging:us-central1:mishmash
+  database: mishmash_test

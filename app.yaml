@@ -1,9 +1,0 @@
-entrypoint: bundle exec rackup --port $PORT
-env: flex
-runtime: ruby
-
-env_variables:
-  SECRET_KEY_BASE: ff7cf7aecaa7164e7e07a9ee15a64eaf2bfc7cd2ce44c172f1756b8a715ee65c188502109fbba88f52aaa9bce26d4b59e399d9a7ee0c1a46115ba62ff142e91c
-
-beta_settings:
-  cloud_sql_instances: mishmash-staging:us-central1:mishmash

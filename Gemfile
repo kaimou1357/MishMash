@@ -12,7 +12,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'pg'
 gem 'devise'
-gem "appengine", "~> 0.4.1"
 
 group :development, :test do
   gem 'factory_bot'

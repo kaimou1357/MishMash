@@ -29,7 +29,7 @@ FactoryBot.define do
     recipe
     type "meat"
     name { Faker::Food.ingredient }
-    unit "ounces"
+    unit "ounce"
     quantity { Faker::Number.number(1) }
     perishable_status 3
   end

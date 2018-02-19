@@ -5,7 +5,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password "password"
     password_confirmation "password"
-    confirmed_at Time.now
   end
 
   factory :profile do
@@ -32,5 +31,15 @@ FactoryBot.define do
     unit "ounce"
     quantity { Faker::Number.number(1) }
     perishable_status 3
+  end
+
+  factory :shopping_list do
+    user
+    name "Test Shopping List"
+    trait :with_recipes do
+      after(:create) do |list|
+        create_list(:recipe, 5, shopping_list: list)
+      end
+    end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219061758) do
+ActiveRecord::Schema.define(version: 20180303210852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,12 +36,23 @@ ActiveRecord::Schema.define(version: 20180219061758) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "recipe_steps_tables", force: :cascade do |t|
+    t.integer "order", null: false
+    t.string "text", null: false
+    t.bigint "recipe_id"
+    t.index ["recipe_id"], name: "index_recipe_steps_tables_on_recipe_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "name", null: false
     t.integer "duration", default: 0, null: false
     t.integer "servings", default: 1, null: false
     t.integer "calories", default: 0, null: false
     t.string "description", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "shopping_list_recipes", force: :cascade do |t|

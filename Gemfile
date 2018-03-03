@@ -12,6 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'pg'
 gem 'devise'
+gem 'paperclip'
 
 group :development, :test do
   gem 'factory_bot'

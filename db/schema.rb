@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180303210852) do
+ActiveRecord::Schema.define(version: 20180304041823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180303210852) do
     t.string "name", null: false
     t.float "quantity", null: false
     t.string "unit", null: false
-    t.string "type", null: false
+    t.string "ingredient_type", null: false
     t.integer "perishable_status", null: false
     t.bigint "recipe_id"
     t.datetime "created_at", null: false
@@ -36,11 +36,11 @@ ActiveRecord::Schema.define(version: 20180303210852) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "recipe_steps_tables", force: :cascade do |t|
+  create_table "recipe_steps", force: :cascade do |t|
     t.integer "order", null: false
     t.string "text", null: false
     t.bigint "recipe_id"
-    t.index ["recipe_id"], name: "index_recipe_steps_tables_on_recipe_id"
+    t.index ["recipe_id"], name: "index_recipe_steps_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20180303210852) do
     t.integer "duration", default: 0, null: false
     t.integer "servings", default: 1, null: false
     t.integer "calories", default: 0, null: false
-    t.string "description", null: false
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"

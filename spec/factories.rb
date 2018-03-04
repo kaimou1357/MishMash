@@ -18,7 +18,6 @@ FactoryBot.define do
     duration { Faker::Number.number(2) }
     servings { Faker::Number.number(1) }
     calories { Faker::Number.number(3) }
-    description { Faker::Food.description }
     after(:create) do |recipe|
       create_list(:ingredient, 5, recipe: recipe)
     end
@@ -26,7 +25,7 @@ FactoryBot.define do
 
   factory :ingredient do
     recipe
-    type "meat"
+    ingredient_type "meat"
     name { Faker::Food.ingredient }
     unit "ounce"
     quantity { Faker::Number.number(1) }

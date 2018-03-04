@@ -14,14 +14,8 @@ RSpec.describe Ingredient, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it "must have a legitimate unit" do
-    subject.unit = "cat"
-
-    expect(subject).to_not be_valid
-  end
-
   it "must have a type" do
-    subject.type = nil
+    subject.ingredient_type = nil
 
     expect(subject).to_not be_valid
   end

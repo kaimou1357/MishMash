@@ -1,12 +1,6 @@
 class Api::RecipesController < Api::ApplicationController
   def create
-    Recipes::RecipeImporter.process(create_recipe_params)
+    RecipeImportJob.perform_later(params[:recipes].to_json)
     render json: { success: true }
-  end
-
-  private
-
-  def create_recipe_params
-    params.require(:recipes)
   end
 end

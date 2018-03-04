@@ -14,6 +14,7 @@ gem 'pg'
 gem 'devise'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'factory_bot'

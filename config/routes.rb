@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   namespace :api do
-    resources :recipes, only: [:create]
+    resources :recipes, only: [:create, :index]
   end
 end
